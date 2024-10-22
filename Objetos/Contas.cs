@@ -11,5 +11,14 @@
         public string Descricao { get; set; }
         public int tipo { get; set; }
         public DateTime Data { get; set; }
+
+        static Dictionary<int, Contas> conta = new Dictionary<int, Contas>();
+        public Dictionary<int, Contas> Conta { get { return conta; } set { conta = value; } }
+        public Contas() { }
+
+        public void AddConta(Contas contasobj)
+        {
+            conta.Add(conta.Count + 1, contasobj);
+        }
     }
 }
