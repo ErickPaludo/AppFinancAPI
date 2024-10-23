@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Erick\\source\\repos\\WebApplication1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{88921F44-2963-4283-9318-94D5A7CEC9E1}|WebApplication1.csproj|c:\\users\\erick\\source\\repos\\webapplication1\\controllers\\gastoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88921F44-2963-4283-9318-94D5A7CEC9E1}|WebApplication1.csproj|solutionrelative:controllers\\gastoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{88921F44-2963-4283-9318-94D5A7CEC9E1}|WebApplication1.csproj|c:\\users\\erick\\source\\repos\\webapplication1\\objetos\\contas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{88921F44-2963-4283-9318-94D5A7CEC9E1}|WebApplication1.csproj|solutionrelative:objetos\\contas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{88921F44-2963-4283-9318-94D5A7CEC9E1}|WebApplication1.csproj|c:\\users\\erick\\source\\repos\\webapplication1\\entities\\contato.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88921F44-2963-4283-9318-94D5A7CEC9E1}|WebApplication1.csproj|solutionrelative:entities\\contato.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88921F44-2963-4283-9318-94D5A7CEC9E1}|WebApplication1.csproj|c:\\users\\erick\\source\\repos\\webapplication1\\objetos\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88921F44-2963-4283-9318-94D5A7CEC9E1}|WebApplication1.csproj|solutionrelative:objetos\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{88921F44-2963-4283-9318-94D5A7CEC9E1}|WebApplication1.csproj|c:\\users\\erick\\source\\repos\\webapplication1\\controllers\\gastoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88921F44-2963-4283-9318-94D5A7CEC9E1}|WebApplication1.csproj|solutionrelative:controllers\\gastoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,56 +18,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 211,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Contas.cs",
               "DocumentMoniker": "C:\\Users\\Erick\\source\\repos\\WebApplication1\\Objetos\\Contas.cs",
               "RelativeDocumentMoniker": "Objetos\\Contas.cs",
               "ToolTip": "C:\\Users\\Erick\\source\\repos\\WebApplication1\\Objetos\\Contas.cs",
               "RelativeToolTip": "Objetos\\Contas.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAAABMAAAAJAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAiwDsAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-21T15:45:44.437Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Contato.cs",
-              "DocumentMoniker": "C:\\Users\\Erick\\source\\repos\\WebApplication1\\Entities\\Contato.cs",
-              "RelativeDocumentMoniker": "Entities\\Contato.cs",
-              "ToolTip": "C:\\Users\\Erick\\source\\repos\\WebApplication1\\Entities\\Contato.cs",
-              "RelativeToolTip": "Entities\\Contato.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T15:45:37.747Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Response.cs",
-              "DocumentMoniker": "C:\\Users\\Erick\\source\\repos\\WebApplication1\\Objetos\\Response.cs",
-              "RelativeDocumentMoniker": "Objetos\\Response.cs",
-              "ToolTip": "C:\\Users\\Erick\\source\\repos\\WebApplication1\\Objetos\\Response.cs",
-              "RelativeToolTip": "Objetos\\Response.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T19:43:54.26Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GastosController.cs",
               "DocumentMoniker": "C:\\Users\\Erick\\source\\repos\\WebApplication1\\Controllers\\GastosController.cs",
               "RelativeDocumentMoniker": "Controllers\\GastosController.cs",
               "ToolTip": "C:\\Users\\Erick\\source\\repos\\WebApplication1\\Controllers\\GastosController.cs",
               "RelativeToolTip": "Controllers\\GastosController.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAAJEAAAAyAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-18T19:08:20.617Z",
               "EditorCaption": ""

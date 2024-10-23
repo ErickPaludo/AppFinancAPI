@@ -7,32 +7,19 @@ namespace WebApplication1.Controllers
     [Route("[controller]")]
     public class GastosController : ControllerBase
     {
+        ContasModel contas = new ContasModel();
         [HttpPost("EnvioContas")]
-        public IActionResult EnvioContas([FromBody] ContasList contas)
+        public IActionResult EnvioContas([FromBody] ContasList<Contas> contasobj)
         {
 
             string tipo = string.Empty;
             string msg = string.Empty;
             var response = new Response<ResPonseList>();
-            foreach (var obj in contas.ContasLista)
+            foreach (var obj in contasobj.ContasLista)
             {
                 try
                 {
-                    switch (obj.tipo)
-                    {
-                        case 1:
-                            tipo = "Débito";
-                            break;
-                        case 2:
-                            tipo = "Crédito";
-                            break;
-                        case 3:
-                            tipo = "Vale Refeição";
-                            break;
-                        default:
-                            tipo = "Valor não encontrado";
-                            break;
-                    }
+                    contas.AddConta(obj);
                     response.response.Add(new ResPonseList
                     {
                         code = 200,
@@ -53,116 +40,58 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPut("AtualizaContas")]
-        public IActionResult AtualizaContas([FromBody] ContasList contas)
+        public IActionResult AtualizaContas([FromBody] ContasPost contasobj)
         {
-
-            string tipo = string.Empty;
-            string msg = string.Empty;
-            var response = new Response<ResPonseList>();
-            foreach (var obj in contas.ContasLista)
-            {
-                try
-                {
-                    switch (obj.tipo)
-                    {
-                        case 1:
-                            tipo = "Débito";
-                            break;
-                        case 2:
-                            tipo = "Crédito";
-                            break;
-                        case 3:
-                            tipo = "Vale Refeição";
-                            break;
-                        default:
-                            tipo = "Valor não encontrado";
-                            break;
-                    }
-                    response.response.Add(new ResPonseList
-                    {
-                        code = 200,
-                        desc = "OK"
-                    });
-                }
-                catch (Exception ex)
-                {
-                    response.response.Add(new ResPonseList
-                    {
-                        code = 400,
-                        desc = ex.Message
-                    });
-                }
-            }
-
-            return Ok(response);
+            contas.Atualiza(contasobj);
+            return Ok();
         }
 
         [HttpDelete("DeleteContas")]
-        public IActionResult DeleteContas([FromBody] ContasList contas)
+        public IActionResult DeleteContas(int id)
         {
-
-            string tipo = string.Empty;
-            string msg = string.Empty;
-            var response = new Response<ResPonseList>();
-            foreach (var obj in contas.ContasLista)
-            {
-                try
-                {
-                    switch (obj.tipo)
-                    {
-                        case 1:
-                            tipo = "Débito";
-                            break;
-                        case 2:
-                            tipo = "Crédito";
-                            break;
-                        case 3:
-                            tipo = "Vale Refeição";
-                            break;
-                        default:
-                            tipo = "Valor não encontrado";
-                            break;
-                    }
-                    response.response.Add(new ResPonseList
-                    {
-                        code = 200,
-                        desc = "OK"
-                    });
-                }
-                catch (Exception ex)
-                {
-                    response.response.Add(new ResPonseList
-                    {
-                        code = 400,
-                        desc = ex.Message
-                    });
-                }
-            }
-
-            return Ok(response);
+            contas.Delete(id);
+            return Ok();
         }
 
         [HttpGet("ReturnContas")]
         public IActionResult RetornoContas(int id)
         {
-            string msg = string.Empty;
-            if (id == 0)
+            var responseConta = new ContasList<ContasPost>();
+            try
             {
-                msg = "Deve retornar todos os valores do banco";
+                if (id == 0)
+                {
+                    foreach (var obj in contas.Conta)
+                    {
+                        responseConta.ContasLista.Add(new ContasPost
+                        {
+                            Id = obj.Key,
+                            Titulo = obj.Value.Titulo,
+                            Valor = obj.Value.Valor,
+                            Tipo = obj.Value.Tipo,
+                            Data = obj.Value.Data
+                        });
+                    }
+                }
+                else
+                {
+                    var obj = contas.BuscarConta(id);
+                    responseConta.ContasLista.Add(obj);
+                }
+                return Ok(responseConta);
             }
-            else
+            catch (Exception ex)
             {
-                msg = $"Retornará apenas o id {id}";
+                var response = new Response<ResPonseList>();
+
+                response.response.Add(new ResPonseList
+                {
+                    code = 400,
+                    desc = ex.Message
+                });
+
+                return Ok(response);
             }
-            var response = new Response<ResPonseList>();
-
-            response.response.Add(new ResPonseList
-            {
-                code = 400,
-                desc = msg
-            });
-
-            return Ok(response);
         }
     }
 }
