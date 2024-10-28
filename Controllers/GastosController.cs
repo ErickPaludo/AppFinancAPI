@@ -39,10 +39,10 @@ namespace WebApplication1.Controllers
             return Ok(response);
         }
 
-        [HttpPut("AtualizaContas")]
-        public IActionResult AtualizaContas([FromBody] ContasPost contasobj)
+        [HttpPut("AtualizaContas/{id}")]
+        public IActionResult AtualizaContas([FromBody] Contas contasobj,int id)
         {
-            contas.Atualiza(contasobj);
+            contas.Atualiza(contasobj,id);
             return Ok();
         }
 

@@ -51,11 +51,11 @@ namespace WebApplication1.Objetos
         {
             conta.Remove(id);
         }
-        public void Atualiza(ContasPost obj)
+        public void Atualiza(Contas obj,int id)
         {
-            if (conta.ContainsKey(obj.Id))
+            if (conta.ContainsKey(id))
             {
-                conta[obj.Id] = obj;
+                conta[id] = obj;
             }
         }
     }
