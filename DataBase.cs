@@ -70,5 +70,51 @@ namespace WebApplication1
                 return new List<ContasPost>();
             }
         }
+        public static void Delete(int id)
+        {
+            var cont = new List<ContasPost>();
+            try
+            {
+                using (OracleConnection connection = new OracleConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = $"delete from tb_gastos where id = {id}";
+
+                    using (OracleCommand cmd = new OracleCommand(query, connection))
+                    {
+                        cmd.ExecuteReader(); 
+                    }
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+             
+            }
+        }
+        public static void AtualizaContas(Contas contasPost,int id)
+        {
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (OracleCommand cmd = new OracleCommand("prc_update", connection))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.Add("id", id);
+                        cmd.Parameters.Add("p_value", contasPost.Valor);
+                        cmd.Parameters.Add("p_titulo", contasPost.Titulo);
+                        cmd.Parameters.Add("p_tipo", contasPost.Tipo);
+                        cmd.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+        }
     }
 }

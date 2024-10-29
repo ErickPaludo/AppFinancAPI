@@ -40,13 +40,5 @@ namespace WebApplication1.Objetos
 
             return contaobj;
         }
-        public void Delete(int id)
-        {
-           
-        }
-        public void Atualiza(Contas obj,int id)
-        {
-           
-        }
     }
 }

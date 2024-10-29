@@ -42,14 +42,14 @@ namespace WebApplication1.Controllers
         [HttpPut("AtualizaContas/{id}")]
         public IActionResult AtualizaContas([FromBody] Contas contasobj,int id)
         {
-            contas.Atualiza(contasobj,id);
+            DataBase.AtualizaContas(contasobj,id);
             return Ok();
         }
 
         [HttpDelete("DeleteContas")]
         public IActionResult DeleteContas(int id)
         {
-            contas.Delete(id);
+            DataBase.Delete(id);
             return Ok();
         }
 
@@ -57,8 +57,9 @@ namespace WebApplication1.Controllers
         public IActionResult RetornoContas(int id)
         {        
             try
-            {             
-                return Ok(DataBase.ColetarDados(id));
+            {
+                var dados = DataBase.ColetarDados(id);
+                return Ok(dados);
             }
             catch (Exception ex)
             {
