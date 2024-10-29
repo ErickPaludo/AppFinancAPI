@@ -19,7 +19,7 @@ namespace WebApplication1.Controllers
             {
                 try
                 {
-                    contas.AddConta(obj);
+                    DataBase.GravarConta(obj);
                     response.response.Add(new ResPonseList
                     {
                         code = 200,
@@ -55,30 +55,10 @@ namespace WebApplication1.Controllers
 
         [HttpGet("ReturnContas")]
         public IActionResult RetornoContas(int id)
-        {
-            var responseConta = new ContasList<ContasPost>();
+        {        
             try
-            {
-                if (id == 0)
-                {
-                    foreach (var obj in contas.Conta)
-                    {
-                        responseConta.ContasLista.Add(new ContasPost
-                        {
-                            Id = obj.Key,
-                            Titulo = obj.Value.Titulo,
-                            Valor = obj.Value.Valor,
-                            Tipo = obj.Value.Tipo,
-                            Data = obj.Value.Data
-                        });
-                    }
-                }
-                else
-                {
-                    var obj = contas.BuscarConta(id);
-                    responseConta.ContasLista.Add(obj);
-                }
-                return Ok(responseConta);
+            {             
+                return Ok(DataBase.ColetarDados(id));
             }
             catch (Exception ex)
             {

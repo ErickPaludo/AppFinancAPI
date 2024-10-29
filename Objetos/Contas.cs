@@ -25,38 +25,28 @@ namespace WebApplication1.Objetos
 
     public class ContasModel
     {
-        static Dictionary<int, Contas> conta = new Dictionary<int, Contas>();
-        public Dictionary<int, Contas> Conta { get { return conta; } set { conta = value; } }
+        static List<Contas> conta = new List<Contas>();
+        public List<Contas> Conta { get { return conta; } set { conta = value; } }
         public ContasModel() { }
 
         public void AddConta(Contas contasobj)
         {
-            conta.Add(conta.Count + 1, contasobj);
+            conta.Add(contasobj);
         }
         public ContasPost BuscarConta(int id)
         {
             ContasPost contaobj = new ContasPost();
-            foreach (var obj in conta)
-            {
-                if (obj.Key == id)
-                {
-                    contaobj = new ContasPost { Id = obj.Key,Valor = obj.Value.Valor,Titulo = obj.Value.Titulo, Tipo = obj.Value.Tipo,Data = obj.Value.Data };
-                    break;
-                }
-            }
+            DataBase.ColetarDados(id);
 
             return contaobj;
         }
         public void Delete(int id)
         {
-            conta.Remove(id);
+           
         }
         public void Atualiza(Contas obj,int id)
         {
-            if (conta.ContainsKey(id))
-            {
-                conta[id] = obj;
-            }
+           
         }
     }
 }
