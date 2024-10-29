@@ -30,9 +30,9 @@ namespace WebApplication1
                 }
             }
         }
-        public static List<ContasPost> ColetarDados(int type)
+        public static ContasList<ContasPost> ColetarDados(int type)
         {
-            var cont = new List<ContasPost>();
+            var cont = new ContasList<ContasPost>();
             try
             {
                 using (OracleConnection connection = new OracleConnection(connectionString))
@@ -43,14 +43,14 @@ namespace WebApplication1
                     {
                         query = $"Select * From tb_gastos";
                     }
-
+                   
                     using (OracleCommand cmd = new OracleCommand(query, connection))
                     {
                         using (OracleDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                cont.Add(new ContasPost
+                                cont.ContasLista.Add(new ContasPost
                                 {
                                     Id = Convert.ToInt32(reader["id"]),
                                     Valor = Convert.ToInt32(reader["valor"]),
@@ -67,7 +67,7 @@ namespace WebApplication1
             }
             catch (Exception ex)
             {
-                return new List<ContasPost>();
+                return new ContasList<ContasPost>();
             }
         }
         public static void Delete(int id)
