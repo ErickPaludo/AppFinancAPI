@@ -6,7 +6,7 @@ namespace WebApplication1
 {
     public static class DataBase
     {
-        private static string connectionString = "Data Source=25.49.76.159:1521/freepdb1;User Id =PldGastos_for_dev;Password=PldGastos_for_dev;";
+        private static string connectionString = "Data Source=localhost:1521/freepdb1;User Id =PldGastos_for_dev;Password=PldGastos_for_dev;";
         public static void GravarConta(Contas contasPost)
         {
             using (OracleConnection connection = new OracleConnection(connectionString))
@@ -21,6 +21,7 @@ namespace WebApplication1
                         cmd.Parameters.Add("p_value", contasPost.Valor);
                         cmd.Parameters.Add("p_titulo", contasPost.Titulo);
                         cmd.Parameters.Add("p_tipo", contasPost.Tipo);
+                        cmd.Parameters.Add("p_data", contasPost.Data);
                         cmd.ExecuteNonQuery();
                     }
                     connection.Close();
@@ -107,6 +108,7 @@ namespace WebApplication1
                         cmd.Parameters.Add("p_value", contasPost.Valor);
                         cmd.Parameters.Add("p_titulo", contasPost.Titulo);
                         cmd.Parameters.Add("p_tipo", contasPost.Tipo);
+                        cmd.Parameters.Add("p_data", contasPost.Data);
                         cmd.ExecuteNonQuery();
                     }
                     connection.Close();

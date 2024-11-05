@@ -11,7 +11,6 @@ namespace WebApplication1.Controllers
         [HttpPost("EnvioContas")]
         public IActionResult EnvioContas([FromBody] ContasList<Contas> contasobj)
         {
-
             string tipo = string.Empty;
             string msg = string.Empty;
             var response = new Response<ResPonseList>();
